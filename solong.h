@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:25:11 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/05 17:28:11 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/05 23:41:12 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,15 @@
 // libft //
 # include "../libft/libft.h"
 
-typedef struct s_data
+# include <X11/keysym.h>
+
+typedef struct s_env
 {
 	void	*mlx;
-	void	*window;
-}	t_data;
+	void	*win;
+	int		width;
+	int		height;
+	char	**map;
+}	t_env;
 
 #endif

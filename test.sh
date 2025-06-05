@@ -1,1 +1,1 @@
-cc main.c -L/user/lib -lmlx -lXext
+cc main.c -L/user/lib -lmlx -lXext -lX11

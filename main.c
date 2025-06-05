@@ -6,29 +6,43 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:24:40 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/05 17:28:45 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/05 23:42:50 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-void	init(t_data *solong);
+int close_esc(int keycode, t_env *env);
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_data	solong;
+	t_env	env;
+	env.mlx = mlx_init();
+	if (!env.mlx)
+		return (1);
+	env.map = get_map(argv);
+	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "so-long");
+	if (!env.win)
+	{
+		mlx_destroy_display(env.mlx);
+		free(env.mlx);
+		return (2);
+	}
 
-	init(&solong);
-	mlx_loop(solong.mlx);
+	mlx_key_hook(env.win, close_esc, &env);
+	mlx_loop(env.mlx);
 }
 
-void	init(t_data *solong)
+int close_esc(int keycode, t_env *env)
 {
-	solong->mlx = mlx_init();
-	if (!solong->mlx)
-		exit(1);
-	solong->window = mlx_new_window(solong->mlx, WIN_WIDTH,
-			WIN_HEIGHT, "so-long");
-	if (!solong->window)
-		exit(2);
+	if (keycode == XK_Escape)
+	{
+		mlx_destroy_window(env->mlx, env->win);
+		mlx_destroy_display(env->mlx);
+		free(env->mlx);
+		exit(0);
+	}
+	return (0);
 }
+
+
