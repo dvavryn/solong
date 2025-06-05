@@ -1,0 +1,1 @@
+cc main.c -L/user/lib -lmlx -lXext

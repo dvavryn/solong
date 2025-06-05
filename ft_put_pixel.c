@@ -1,0 +1,1 @@
+void	ft_put_pixel()
