@@ -2,6 +2,7 @@
 	"files.associations": {
 		"solong.h": "c",
 		"libft.h": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"stdlib.h": "c"
 	}
 }
