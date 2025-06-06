@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:24:40 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/06 14:37:42 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/06 15:27:45 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 
 	t_env	env;
 	env.mlx = mlx_init();
-	env.map = map;
+	env.map = map1;
 	env.factor = FACTOR;
 	env.width = get_width(env.map, env.factor);
 	env.height = get_height(env.map, env.factor);

@@ -3,6 +3,8 @@
 		"solong.h": "c",
 		"libft.h": "c",
 		"unistd.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"keysym.h": "c",
+		"mlx.h": "c"
 	}
 }
