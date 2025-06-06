@@ -6,14 +6,14 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:25:11 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/06 13:16:07 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/06 14:37:28 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 # define SOLONG_H
 
-# define FACTOR	32
+# define FACTOR	64
 
 // open //
 # include <fcntl.h>

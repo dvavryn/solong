@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:24:40 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/06 13:17:10 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/06 14:37:42 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main(int argc, char **argv)
 {
 	char	*map[] = {
 		"1111111111111",
-		"10010000000C1",
+		"1P010000000C1",
 		"1000011111001",
-		"1P0011E000001",
+		"100011E000001",
 		"1111111111111",
 		NULL
 	};
@@ -77,11 +77,14 @@ int main(int argc, char **argv)
 	
 	t_ent dom;
 	
-	get_player_pos(&dom, &env);
+	get_ent_pos(&dom, &env, 'P');
 
 	ft_put_pixel_block(&img, dom.x * env.factor, dom.y * env.factor, 0x00FFFF33, &env);
 	printf("%c", dom.e[0]);
 
+	get_ent_pos(&dom, &env, 'E');
+
+	ft_put_pixel_block(&img, dom.x * env.factor, dom.y * env.factor, 0x00FF0000, &env);
 
 	mlx_put_image_to_window(env.mlx, env.win, img.img, 0, 0);
 	mlx_key_hook(env.win, close_esc, &env);
@@ -145,7 +148,7 @@ size_t get_height(char **map, int factor)
 	return (i * factor);
 }
 
-void	get_player_pos(t_ent *player, t_env *env, char name)
+void	get_ent_pos(t_ent *player, t_env *env, char name)
 {
 	size_t	i;
 	size_t	j;
