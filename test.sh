@@ -1,2 +1,2 @@
-cc test.c -L/user/lib -lmlx -lXext -lX11 -L../libft -lft -g
+cc main.c -L/user/lib -lmlx -lXext -lX11 -L../libft -lft -g
 ./a.out
