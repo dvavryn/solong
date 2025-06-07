@@ -20,7 +20,7 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	void	*textures[4];
+	void	*textures[5];
 	t_map	*map;
 	t_player	*player;
 }	t_data;
