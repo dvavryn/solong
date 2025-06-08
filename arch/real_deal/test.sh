@@ -1,1 +1,2 @@
-cc main.c working_utils.c -L/user/lib -lmlx -lXext -lX11 -L../../../libft -lft -g && ./a.out
+cc main.c working_utils.c -L/user/lib -lmlx -lXext -lX11 -L../../../libft -lft -g
+./a.out
