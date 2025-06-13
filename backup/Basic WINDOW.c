@@ -6,61 +6,59 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:13:26 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/13 21:29:06 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/13 20:13:42 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include <mlx.h>
+#include <X11/keysym.h>
+#include <stdlib.h>
 
-int	escape(int key, t_mlx *kek)
+#ifndef WIN_WIDTH
+# define WIN_WIDTH 800
+#endif
+#ifndef WIN_HEIGHT
+# define WIN_HEIGHT 800
+#endif
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+	char	**map;
+}	t_mlx;
+
+int	close(int key, t_mlx *kek)
 {
 	if (key == XK_Escape)
 	{
 		mlx_destroy_window(kek->mlx, kek->win);
 		mlx_destroy_display(kek->mlx);
 		free(kek->mlx);
-		free_split(kek->map);
 		exit(0);
 	}
 	return (0);
 }
 
-int	keyhandler(int key, t_mlx *kek)
+void	init_kek(t_mlx *kek)
 {
-	int	ret;
-
-	ret = escape(key, kek);
-	return (ret);
-}
-
-void	init_kek(t_mlx *kek, char *map_path)
-{
-	kek->map = init_map(map_path);
-	if (!kek->map)
-		exit(1);
 	kek->mlx = mlx_init();
 	if (!kek->mlx)
-	{
-		free(kek->map);	
 		exit(1);
-	}
 	kek->win = mlx_new_window(kek->mlx, WIN_WIDTH, WIN_HEIGHT, "solong");
 	if (!kek->win)
 	{
 		mlx_destroy_display(kek->mlx);
 		free(kek->mlx);
-		free_split(kek->map);
 		exit(1);
 	}
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	t_mlx	kek;
 
-	if (argc != 2)
-		return (1);
-	init_kek(&kek, argv[1]);
-	mlx_key_hook(kek.win, keyhandler, &kek);
+	init_kek(&kek);
+	mlx_key_hook(kek.win, close, &kek);
 	mlx_loop(kek.mlx);
 }
