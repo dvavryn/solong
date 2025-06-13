@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 21:01:04 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/13 21:23:32 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/13 22:12:42 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ typedef struct s_mlx
 
 char	**init_map(char *path);
 void	errorcheck(char **map);
+int		count(char c, char **map);
+
 
 #endif

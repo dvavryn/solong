@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:13:26 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/13 21:29:06 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/13 22:06:32 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	init_kek(t_mlx *kek, char *map_path)
 	kek->mlx = mlx_init();
 	if (!kek->mlx)
 	{
-		free(kek->map);	
+		free(kek->map);
 		exit(1);
 	}
 	kek->win = mlx_new_window(kek->mlx, WIN_WIDTH, WIN_HEIGHT, "solong");
