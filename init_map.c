@@ -6,7 +6,7 @@
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 21:00:09 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/13 22:09:44 by dvavryn          ###   ########.fr       */
+/*   Updated: 2025/06/16 12:46:48 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**init_map(char *path)
 	char	*oneline;
 	char	**out;
 
-	fd = open("./map.ber", O_RDONLY);
+	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
 	oneline = readin(fd);
@@ -42,10 +42,13 @@ static char	*readin(int fd)
 	ssize_t	b;
 
 	out = ft_strdup("");
+	if (!out)
+		exit(1);
 	b = 1;
+	ft_bzero(s, 10);
 	while (b > 0)
 	{
-		b = read(fd, s, 10);
+		b = read(fd, s, sizeof(s) - 1);
 		if (b < 0)
 			return (free(out), NULL);
 		tmp = out;
