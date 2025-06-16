@@ -1,0 +1,18 @@
+
+void	init_kek(t_mlx **kek)
+{
+	(*kek) = malloc(sizeof(t_mlx));
+	if (!(*kek))
+		exit(1);
+	(*kek)->mlx = mlx_init();
+	if (!(*kek)->mlx)
+		exit(1);
+	(*kek)->win = mlx_new_window((*kek)->mlx, WIN_WIDTH, WIN_HEIGHT, "solong");
+	if (!(*kek)->win)
+	{
+		mlx_destroy_display((*kek)->mlx);
+		free((*kek)->mlx);
+		free(kek)
+		exit(1);
+	}
+}
