@@ -5,37 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvavryn <dvavryn@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 21:01:04 by dvavryn           #+#    #+#             */
-/*   Updated: 2025/06/13 22:12:42 by dvavryn          ###   ########.fr       */
+/*   Created: 2025/06/19 17:37:17 by dvavryn           #+#    #+#             */
+/*   Updated: 2025/06/19 17:39:27 by dvavryn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 # define SOLONG_H
 
-# include <mlx.h>
-# include <X11/keysym.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "../libft/libft.h"
+# define WIN_WID 800;
+# define WIN_HEI 800;
 
-# ifndef WIN_WIDTH
-#  define WIN_WIDTH 800
-# endif
-# ifndef WIN_HEIGHT
-#  define WIN_HEIGHT 800
-# endif
-
-typedef struct s_mlx
+typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
+	void	*textures[5];
 	char	**map;
-}	t_mlx;
-
-char	**init_map(char *path);
-void	errorcheck(char **map);
-int		count(char c, char **map);
+}	t_data;
 
 
 #endif

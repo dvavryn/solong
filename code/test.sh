@@ -1,4 +1,4 @@
-cc main.c init_map.c errorcheck.c utils_one.c -L/user/lib -lmlx -lXext -lX11 -L../libft -lft -g -o solong
+cc main.c -L/user/lib -lXext -lX11 -L../libft -lft -L../mlx -lmlx_Linux -g -o solong
 
 # ./solong smallmap.ber
 ./solong map_big.ber
